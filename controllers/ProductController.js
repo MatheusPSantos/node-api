@@ -3,8 +3,8 @@ const Product = mongoose.model('Product');
 
 module.exports = {
     async index(req, res) {
-        const { page=1} = req.query;
-        const products = await Product.paginate({}, {page, limit: 10});
+        const { page = 1 } = req.query;
+        const products = await Product.paginate({}, { page, limit: 10 });
         return res.json(products);
     },
 
@@ -19,7 +19,7 @@ module.exports = {
     },
 
     async update(req, res) {
-        const product = await Product.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        const product = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
         return res.json(product);
     },
 
